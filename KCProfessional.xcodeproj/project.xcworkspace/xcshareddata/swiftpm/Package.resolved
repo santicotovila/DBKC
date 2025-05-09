@@ -1,0 +1,42 @@
+{
+  "originHash" : "3d2237ce55c3f18fe69913ed17e1baf5f8e54df1b3cf27eb21bfe879eef810a5",
+  "pins" : [
+    {
+      "identity" : "combinecocoa",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/CombineCommunity/CombineCocoa",
+      "state" : {
+        "revision" : "7300c75ff9e072aa7fd0fccefcc88f74aae9bf56",
+        "version" : "0.4.1"
+      }
+    },
+    {
+      "identity" : "kclibraryswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/LuisEscamez/KCLibrarySwift.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "f11112367755836fee0aaea0ce6f2a51837ddea0"
+      }
+    },
+    {
+      "identity" : "keychainaccess",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kishikawakatsumi/KeychainAccess.git",
+      "state" : {
+        "revision" : "84e546727d66f1adc5439debad16270d0fdd04e7",
+        "version" : "4.2.2"
+      }
+    },
+    {
+      "identity" : "librarykc",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/santicotovila/LibraryKC.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "4e1050e588fcb964127e851852ac44906b51d436"
+      }
+    }
+  ],
+  "version" : 3
+}

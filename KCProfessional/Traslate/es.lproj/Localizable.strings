@@ -1,0 +1,8 @@
+
+"email" = "Correo Electrónico";
+"password" = "Clave";
+"login" = "Entrar";
+"heros-title" = "Lista de Heros";
+"error-message" = "Contraseña o usuario incorrectos";
+"error-button" = "Volver al login";
+"Transformations" = "Transformaciones de Heroe";
