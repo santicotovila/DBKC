@@ -391,6 +391,56 @@ final class KCDragonBallProfTests: XCTestCase {
         
     }
     
+
+
+    func testTableViewAllHeros() {
+        
+        let appState = AppState()
+        let viewModel = HerosViewModel()
+        viewModel.heros = [
+            HerosEntity(id: "id", favorite: true, description: "description", photo: "photo", name: "name"),
+            HerosEntity(id: "id2", favorite: true, description: "description2", photo: "photo2", name: "name2")
+        ]
+
+        
+        let sut = HomeViewController(appState: appState, viewModel: viewModel)
+
+
+        let tableView = UITableView()
+        sut.setValue(tableView, forKey: "tableViewHeros")
+
+        
+        tableView.dataSource = sut
+        tableView.delegate = sut
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+
+        
+        let rowCount = sut.tableView(tableView, numberOfRowsInSection: 0)
+        XCTAssertEqual(rowCount, 2)
+    }
+    
+    func testTableView_AllTransformations() {
+        
+        var sut: TransformationsTableViewController!
+        let viewModel = TransformationsViewModel()
+        
+        sut = TransformationsTableViewController(viewModel: viewModel)
+        
+        sut.loadViewIfNeeded()
+        
+        viewModel.transformations = [
+            TransformationsEntity(photo: "photo", description: "description", id: "id", name: "name"),
+            TransformationsEntity(photo: "photo", description: "description", id: "id", name: "name")
+        ]
+        
+        let rowCount = sut.tableView(sut.tableView, numberOfRowsInSection: 0)
+        
+        XCTAssertEqual(rowCount, 2)
+    }
+
+          
+
+
 }
 
 
