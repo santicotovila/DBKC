@@ -87,9 +87,10 @@ final class LoginView: UIView {
         NSLayoutConstraint.activate([
             //Logo
             logoImage.topAnchor.constraint(equalTo: topAnchor, constant: 120),
-            logoImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            logoImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 60),
             logoImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            logoImage.heightAnchor.constraint(equalToConstant: 50),
+            logoImage.heightAnchor.constraint(equalToConstant:40),
+            
             
             //user
             emailTextfield.topAnchor.constraint(equalTo: logoImage.bottomAnchor, constant: 100),

@@ -1,6 +1,6 @@
 import Foundation
 
-enum LoginStatuc {
+enum LoginStatus {
     case none
     case success
     case error
@@ -8,7 +8,7 @@ enum LoginStatuc {
 }
 
 final class AppState {
-    @Published var loginStatus: LoginStatuc = .none
+    @Published var loginStatus: LoginStatus = .none
     
     //Dependencies
     private var loginUseCase: LoginUseCase
@@ -44,3 +44,5 @@ final class AppState {
         }
     }
 }
+
+

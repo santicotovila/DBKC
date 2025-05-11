@@ -83,7 +83,7 @@ final class HeroInfoViewController: UIViewController {
          } .store(in: &suscriptors)*/
         
         
-        //🔎 FIXME: - He tenido problemas para gestinar el boton segun este habiitado o no usando combine,creo que la idea esta bien pero no soy capaz de llevarla acabo,intente hacer la carga de heroes en el ciclo de vida para que cargue con antelacion pero si la ejecuto alli automaticamente siempre estan cargados y nunca va ser vacio ,entonces la deje en la logica del boton pero me queda sin resolverlo el ocultar el boton o no dependiendo de si tiene transformaciones(se que no era necesario pero te agradeceria que me ayudaras a solucionarlo porque me agobió un poco el problema del boton😅
+        //🔎 FIXME: - He tenido problemas para gestinar el boton segun este habilitado o no usando combine,creo que la idea esta bien pero no soy capaz de llevarla acabo,intente hacer la carga de heroes en el ciclo de vida para que cargue con antelacion pero si la ejecuto alli automaticamente siempre estan cargados y nunca va ser vacio ,entonces la deje en la logica del boton pero me queda sin resolverlo el ocultar el boton o no dependiendo de si tiene transformaciones(se que no era necesario pero te agradeceria que me ayudaras a solucionarlo porque me agobió un poco el problema del boton😅
     }
     /*
     private func buttonVisibility() {

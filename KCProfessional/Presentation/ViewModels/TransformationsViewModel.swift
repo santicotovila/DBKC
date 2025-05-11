@@ -16,7 +16,6 @@ final class TransformationsViewModel: ObservableObject {
     func loadTransformations() async {
         guard let heroID = heroInfoVM.selectedHero?.id else { return }
         let data = await useCaseTransformations.getTransformations(filter: heroID)
-        print("datos son \(data.count)")
         DispatchQueue.main.async {
             self.transformations = data
         }
@@ -25,14 +24,3 @@ final class TransformationsViewModel: ObservableObject {
 }
 
 
-final class MockTransformationsViewModel: ObservableObject {
-    @Published var transformations = [TransformationsEntity]()
-    
-    let heroInfoVM : MockHeroInfoViewModel
-    private var useCaseTransformations: TransformationsUseCaseFake
-    
-    init(heroInfoVM:MockHeroInfoViewModel = MockHeroInfoViewModel(),useCaseTransformations: TransformationsUseCaseProtocol = TransformationsUseCaseFake()) {
-        self.heroInfoVM = heroInfoVM
-        self.useCaseTransformations = useCaseTransformations as! TransformationsUseCaseFake
-    }
-}

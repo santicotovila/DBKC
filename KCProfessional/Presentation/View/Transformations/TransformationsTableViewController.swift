@@ -6,7 +6,7 @@ final class TransformationsTableViewController: UITableViewController {
     
    
     
-    var viewModel: TransformationsViewModel = TransformationsViewModel()
+    var viewModel: TransformationsViewModel
     var suscriptors = Set<AnyCancellable>()
     
     init(viewModel: TransformationsViewModel) {

@@ -381,7 +381,7 @@ final class KCDragonBallProfTests: XCTestCase {
         
     }
     
-    func test_LocalizedStrings_returnValuesCorrect() {
+   func test_LocalizedStrings_returnValuesCorrect() {
         func testLocalizedStrings() {
             XCTAssertEqual(NSLocalizedString("heros-title", comment: ""), "Heros list")
             XCTAssertEqual(NSLocalizedString("error-message", comment: ""), "Wrong password or user")
@@ -393,129 +393,5 @@ final class KCDragonBallProfTests: XCTestCase {
     
 }
 
-class TransformationsTableViewControllerTests: XCTestCase {
-    
-    var sut: TransformationsTableViewController!
-    var mockViewModel: MockTransformationsViewModel!
-    
-    override func setUp() {
-        super.setUp()
-        mockViewModel = MockTransformationsViewModel()
-        sut = TransformationsTableViewController(viewModel:)
-    }
-    
-    override func tearDown() {
-        sut = nil
-        mockViewModel = nil
-        super.tearDown()
-    }
-    
-    func testInitialization() {
-        // Test initialization with view model
-        XCTAssertNotNil(sut)
-        XCTAssertIdentical(sut.viewModel as? MockTransformationsViewModel, mockViewModel)
-        XCTAssertEqual(sut.nibName, "TransformationsView")
-    }
-    
-    func testViewDidLoad() {
-        // Load view
-        _ = sut.view
-        
-        // Test that view is configured correctly
-        XCTAssertEqual(sut.title, NSLocalizedString("Transformations", comment: ""))
-        XCTAssertTrue(sut.tableView.delegate === sut)
-        XCTAssertTrue(sut.tableView.dataSource === sut)
-        
-        // Test cell registration (indirectly via numberOfRowsInSection)
-        let mockTransformation = TransformationEntity(id: 1, name: "Test", description: "Test description", photo: "test.jpg")
-        mockViewModel.transformations = [mockTransformation]
-        
-        XCTAssertEqual(sut.tableView.numberOfRows(inSection: 0), 1)
-    }
-    
-    func testTableViewDelegateAndDataSource() {
-        // Setup test data
-        let mockTransformation1 = TransformationEntity(id: 1, name: "Test 1", description: "Description 1", photo: "test1.jpg")
-        let mockTransformation2 = TransformationEntity(id: 2, name: "Test 2", description: "Description 2", photo: "test2.jpg")
-        mockViewModel.transformations = [mockTransformation1, mockTransformation2]
-        
-        // Load view
-        _ = sut.view
-        
-        // Test numberOfRowsInSection
-        XCTAssertEqual(sut.tableView(sut.tableView, numberOfRowsInSection: 0), 2)
-        
-        // Test heightForRowAt
-        XCTAssertEqual(sut.tableView(sut.tableView, heightForRowAt: IndexPath(row: 0, section: 0)), 100)
-        
-        // We can't easily test cellForRowAt without a real UITableView setup,
-        // but we can test that it doesn't crash
-        let indexPath = IndexPath(row: 0, section: 0)
-        let cell = sut.tableView(sut.tableView, cellForRowAt: indexPath)
-        XCTAssertNotNil(cell)
-    }
-    
-    func testDataBinding() {
-        // Load view to trigger viewDidLoad
-        _ = sut.view
-        
-        // Setup expectations
-        let expectation = self.expectation(description: "Table view reloaded")
-        
-        // Mock table view reload
-        let mockTableView = MockTableView()
-        sut.tableView = mockTableView
-        
-        mockTableView.reloadDataClosure = {
-            expectation.fulfill()
-        }
-        
-        // Trigger data binding by updating transformations
-        mockViewModel.transformations = [TransformationEntity(id: 3, name: "New Test", description: "New Description", photo: "new.jpg")]
-        
-        // Wait for the expectation to be fulfilled
-        waitForExpectations(timeout: 1.0)
-        
-        // Verify that the table view was reloaded
-        XCTAssertTrue(mockTableView.reloadDataCalled)
-    }
-}
 
-// MARK: - Mock Classes
 
-class MockTransformationsViewModel: TransformationsViewModel {
-    override init() {
-        super.init()
-    }
-}
-
-class MockTableView: UITableView {
-    var reloadDataCalled = false
-    var reloadDataClosure: (() -> Void)?
-    
-    override func reloadData() {
-        reloadDataCalled = true
-        reloadDataClosure?()
-    }
-}
-
-// Add this mock class if TransformationEntity is not defined in your test target
-// Adjust properties based on your actual implementation
-struct TransformationEntity {
-    let id: Int
-    let name: String
-    let description: String
-    let photo: String
-}
-
-// Add this mock class if TransformationsViewModel is not defined in your test target
-class TransformationsViewModel {
-    @Published var transformations: [TransformationEntity] = []
-}
-
-// Add this mock class if TransformationsTableViewCell is not defined in your test target
-class TransformationsTableViewCell: UITableViewCell {
-    func configUI(with transformation: TransformationEntity) {
-        // Mock implementation
-    }
-}

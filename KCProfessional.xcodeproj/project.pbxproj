@@ -299,7 +299,6 @@
 			children = (
 				2F6CD9652DC7D927004A9C8E /* Entities */,
 				2FF3D5A92DC165490046ACB2 /* Protocols */,
-				2FF3D5A82DC165440046ACB2 /* Tools */,
 				2FF3D5A72DC1653C0046ACB2 /* Extensions */,
 				2FF3D5A62DC165340046ACB2 /* UsesCases */,
 			);
@@ -383,13 +382,6 @@
 				2F6CD9562DC7D43F004A9C8E /* UImage+Extensions.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		2FF3D5A82DC165440046ACB2 /* Tools */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Tools;
 			sourceTree = "<group>";
 		};
 		2FF3D5A92DC165490046ACB2 /* Protocols */ = {
