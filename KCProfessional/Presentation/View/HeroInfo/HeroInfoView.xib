@@ -13,6 +13,7 @@
                 <outlet property="descriptionHero" destination="FBi-Jy-nVy" id="YSr-db-r6w"/>
                 <outlet property="imageHero" destination="8mw-LL-GTo" id="vjE-dx-55E"/>
                 <outlet property="messageTransformationsEmpty" destination="Tve-q0-aaS" id="it0-Rp-sD7"/>
+                <outlet property="transformationsButton" destination="ubH-nD-AUa" id="QQM-mK-zDR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -29,17 +30,20 @@
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ubH-nD-AUa">
                     <rect key="frame" x="20" y="679" width="353" height="35"/>
+                    <color key="backgroundColor" systemColor="systemOrangeColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="fQw-EW-6Wi"/>
                     </constraints>
                     <color key="tintColor" systemColor="systemOrangeColor"/>
                     <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="filled" title="Transformations"/>
+                    <buttonConfiguration key="configuration" style="filled" title="Transformations">
+                        <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
+                    </buttonConfiguration>
                     <connections>
                         <action selector="tapAccessTransformation" destination="-1" eventType="touchUpInside" id="rle-2a-qrl"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tve-q0-aaS">
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tve-q0-aaS">
                     <rect key="frame" x="15" y="720" width="363" height="21"/>
                     <color key="backgroundColor" red="0.73898345229999995" green="0.29969518839999998" blue="0.47293982410000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>

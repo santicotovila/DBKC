@@ -1,10 +1,8 @@
 import Foundation
 import Combine
 
-
 final class TransformationsViewModel: ObservableObject {
     @Published var transformations = [TransformationsEntity]()
-    
     
     let heroInfoVM : HeroInfoViewModel
     private var useCaseTransformations: TransformationsUseCaseProtocol
@@ -14,7 +12,7 @@ final class TransformationsViewModel: ObservableObject {
         self.useCaseTransformations = useCaseTransformations
     }
     
-   
+    //@MainActor
     func loadTransformations() async {
         guard let heroID = heroInfoVM.selectedHero?.id else { return }
         let data = await useCaseTransformations.getTransformations(filter: heroID)
@@ -23,6 +21,18 @@ final class TransformationsViewModel: ObservableObject {
             self.transformations = data
         }
     }
-    
 
+}
+
+
+final class MockTransformationsViewModel: ObservableObject {
+    @Published var transformations = [TransformationsEntity]()
+    
+    let heroInfoVM : MockHeroInfoViewModel
+    private var useCaseTransformations: TransformationsUseCaseFake
+    
+    init(heroInfoVM:MockHeroInfoViewModel = MockHeroInfoViewModel(),useCaseTransformations: TransformationsUseCaseProtocol = TransformationsUseCaseFake()) {
+        self.heroInfoVM = heroInfoVM
+        self.useCaseTransformations = useCaseTransformations as! TransformationsUseCaseFake
+    }
 }

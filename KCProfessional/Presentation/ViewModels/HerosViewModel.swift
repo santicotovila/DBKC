@@ -22,5 +22,6 @@ final class HerosViewModel: ObservableObject {
         DispatchQueue.main.async {
             self.heros = data
         }
+        
     }
 }

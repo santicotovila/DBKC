@@ -13,3 +13,4 @@ struct HerosEntity: Codable {
 struct HeroModelRequest: Codable {
     let name: String
 }
+

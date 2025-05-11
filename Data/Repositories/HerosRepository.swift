@@ -8,7 +8,7 @@ final class HerosRepository: HerosRepositoryProtocol {
     }
     
     func getHeros(IDHeros: String) async -> [HerosEntity] {
-        return await network.getHerosMock(filter: IDHeros)
+        return await network.getHeros(filter: IDHeros)
     }
 }
 
@@ -20,6 +20,6 @@ final class HerosRepositoryFake: HerosRepositoryProtocol {
     }
     
     func getHeros(IDHeros: String) async -> [HerosEntity] {
-        return await network.getHerosMock(filter: IDHeros)
+        return await network.getHeros(filter: IDHeros)
     }
 }

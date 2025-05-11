@@ -208,13 +208,13 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		2F6CD9272DC69339004A9C8E /* Mocks */ = {
+		2F6CD9272DC69339004A9C8E /* SupportLocal */ = {
 			isa = PBXGroup;
 			children = (
 				2F6CD92A2DC69365004A9C8E /* transformations.json */,
 				2F6CD9282DC69351004A9C8E /* heros.json */,
 			);
-			path = Mocks;
+			path = SupportLocal;
 			sourceTree = "<group>";
 		};
 		2F6CD9442DC78C55004A9C8E /* Cells */ = {
@@ -278,7 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				2F6CD9592DC7D650004A9C8E /* Traslate */,
-				2F6CD9272DC69339004A9C8E /* Mocks */,
+				2F6CD9272DC69339004A9C8E /* SupportLocal */,
 				2FF3D59E2DC163410046ACB2 /* Presentation */,
 				2F24649C2DC228D900E0FB71 /* SupportingFiles */,
 			);
